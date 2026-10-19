@@ -1,0 +1,25 @@
+# netlify.toml
+# Twikoo 后端在 Netlify 上的部署配置
+
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
+# Netlify Functions 的运行环境
+[functions]
+  node_bundler = "esbuild"
+
+# 根路径重定向到 Twikoo 函数（这样 https://pl688.ccwu.cc/ 直接访问也能看到"运行正常"提示）
+[[redirects]]
+  from = "/"
+  to = "/.netlify/functions/twikoo"
+  status = 200
+  force = true
+
+# ===== 静态资源的 CORS（对静态页面生效，Functions 头由函数内部注入） =====
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Methods = "GET, POST, OPTIONS"
+    Access-Control-Allow-Headers = "Content-Type, X-Requested-With, X-Device-Id"
