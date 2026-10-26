@@ -1,13 +1,50 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
   <meta charset="utf-8">
-</head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Twikoo 评论区</title>
+  <style>
+    /* ===== 基础布局 ===== */
+    body {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: #fff;
+      color: #333;
+    }
 
+    /* ===== 控制 Twikoo 评论区图片大小 ===== */
+    /* 限制评论内容中的图片最大宽度，并保持比例 */
+    .tk-main .tk-content img {
+      max-width: 100%;   /* 图片最宽不超过评论区域 */
+      height: auto;      /* 高度自动，保持原始比例 */
+      border-radius: 6px;
+      margin: 4px 0;
+    }
+
+    /* 排除表情包，避免表情被意外缩小 */
+    .tk-main .tk-content img:not(.tk-owo-emotion) {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* 如果希望图片更小，把上面的 max-width 改成固定像素即可，例如： */
+    /* .tk-main .tk-content img { max-width: 300px; } */
+  </style>
+</head>
 <body>
-  <script type="text/javascript">
-    location.href = '/.netlify/functions/twikoo'
+  <!-- Twikoo 评论区容器 -->
+  <div id="twikoo"></div>
+
+  <!-- Twikoo 前端脚本 -->
+  <script src="https://cdn.jsdelivr.net/npm/twikoo@1.6.39/dist/twikoo.min.js"></script>
+  <script>
+    twikoo.init({
+      envId: 'https://pl688.ccwu.cc',  // 你的 Twikoo 云函数地址
+      el: '#twikoo'
+    });
   </script>
 </body>
-
 </html>
