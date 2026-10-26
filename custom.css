@@ -3,8 +3,8 @@
 
 /* 1. 电脑端 (PC) 样式 */
 .tk-main .tk-content img {
-  max-width: 250px !important;   
-  max-height: 250px !important;  
+  max-width: 150px !important;   
+  max-height: 150px !important;  
   width: auto !important;
   height: auto !important;
   object-fit: contain !important; 
@@ -17,8 +17,8 @@
 /* 2. 移动端适配 (屏幕宽度小于 768px 时生效) */
 @media screen and (max-width: 768px) {
   .tk-main .tk-content img {
-    max-width: 150px !important;  
-    max-height: 150px !important; 
+    max-width: 50px !important;  
+    max-height: 50px !important; 
   }
 }
 
