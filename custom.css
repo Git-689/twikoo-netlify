@@ -1,24 +1,31 @@
-/* custom.css */
-/* 限制 Twikoo 评论区图片大小 (适配电脑端和移动端) */
+/* ========================================================
+   Twikoo 评论区图片大小控制 (适配电脑端和移动端)
+   ======================================================== */
 
 /* 1. 电脑端 (PC) 样式 */
 .tk-main .tk-content img {
-  max-width: 150px !important;   
-  max-height: 150px !important;  
+  /* 电脑端限制为 200px */
+  max-width: 200px !important;   
+  max-height: 200px !important;  
   width: auto !important;
   height: auto !important;
+  
+  /* 保证图片比例不变，不拉伸 */
   object-fit: contain !important; 
-  border-radius: 6px;
+  
+  /* 美化：圆角、鼠标悬停变成放大镜 */
+  border-radius: 4px;
   cursor: zoom-in;               
-  margin: 6px 0;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1); 
+  margin: 4px 0;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1); 
 }
 
 /* 2. 移动端适配 (屏幕宽度小于 768px 时生效) */
 @media screen and (max-width: 768px) {
   .tk-main .tk-content img {
-    max-width: 50px !important;  
-    max-height: 50px !important; 
+    /* 移动端限制为 100px */
+    max-width: 100px !important;  
+    max-height: 100px !important; 
   }
 }
 
